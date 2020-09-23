@@ -12,8 +12,6 @@
 ### Requisitos para a compilação do projeto:
 - possuir .Net Core 3.1 SDK instalado na máquina local.
     > https://dotnet.microsoft.com/download 
-- Possuir PostgreSQL na versão 10 ou superior instalado na máquina.
-    > https://www.postgresql.org/download/
 - Possuir o NodeJS instalado na máquina, com o NPM configurado.
     > https://nodejs.org/en/download/ 
 - Possuir instalada a IDE do visual studio ou semelhante.
