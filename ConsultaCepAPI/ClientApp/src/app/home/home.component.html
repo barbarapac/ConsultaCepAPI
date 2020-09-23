@@ -1,0 +1,106 @@
+<h4>
+  <p>Digite o CEP</p>
+</h4>
+<div class="form-inline waves-light">
+  <div class="md-form mt-0 w-75">
+    <input style="width: 100%;" class="form-control mr-sm-2" type="text"
+    [(ngModel)]="cepBusca" placeholder="Digite o CEP"/>
+  </div>
+  <button class="btn btn-primary m-1" (click)="PesquisarCeps(cepBusca)">Pesquisar</button>
+</div>
+<br>
+<br>
+<div class="lista" *ngIf="cep">
+  <table class="table table-hover">
+    <colgroup>
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 5%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+    </colgroup>
+    <thead class="thead-light">
+      <tr>
+        <th>CEP</th>
+        <th>Localidade</th>
+        <th>Complemento</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>UF</th>
+        <th>DDD</th>
+        <th>IBGE</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="content" *ngFor="let item of cep">
+        <td>
+          <div>
+            {{item.cep}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.localidade}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.logradouro}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.complemento}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.bairro}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.uf}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.ddd}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.ibge}}
+          </div>
+        </td>
+        <td>
+          <div><button class="btn btn-outline-primary" (click)="onClickButton(item)">Favoritar</button></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<div>
+  <div class="alert alert-success" role="alert" *ngIf="sucess">
+    CEP favoritado!
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="erro">
+      Ocorreu um problema o favoritar o CEP, tente novamente!
+  </div>
+  <div class="alert alert-secondary" role="alert" *ngIf="warning">
+      Não encontramos o CEP informado! Tente novamente!
+  </div>
+  <div class="alert alert-warning" role="alert" *ngIf="invalid">
+      CEP inválido! CEP deve possuir 8 digitos.
+  </div>
+  <div class="alert alert-warning" role="alert" *ngIf="favoritado">
+      CEP já favoritado! 
+  </div>
+</div>

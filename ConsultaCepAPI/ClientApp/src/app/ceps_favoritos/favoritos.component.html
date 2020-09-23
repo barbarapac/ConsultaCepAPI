@@ -1,0 +1,86 @@
+<h4>
+  <p>CEP's Favoritos</p>
+</h4>
+<div class="lista" *ngIf="ceps.length > 0">
+  <table class="table table-hover">
+    <colgroup>
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 5%;">
+      <col span="1" style="width: 5%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+      <col span="1" style="width: 2%;">
+    </colgroup>
+    <thead class="thead-light">
+      <tr>
+        <th>CEP</th>
+        <th>Localidade</th>
+        <th>Complemento</th>
+        <th>Logradouro</th>
+        <th>Bairro</th>
+        <th>UF</th>
+        <th>DDD</th>
+        <th>IBGE</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="content" *ngFor="let item of ceps">
+        <td>
+          <div>
+            {{item.cep}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.localidade}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.complemento}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.logradouro}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.bairro}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.uf}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.ddd}}
+          </div>
+        </td>
+        <td>
+          <div>
+            {{item.ibge}}
+          </div>
+        </td>
+        <td>
+          <div><button class="btn btn-danger" [disabled]="" (click)="onClickButton(item.id)">Excluir</button></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<div class="alert alert-success" role="alert" *ngIf="sucess">
+  CEP excluído com sucesso!
+</div>
+<div class="alert alert-danger" role="alert" *ngIf="erro">
+  Ocorreu um problema o favoritar o CEP, tente novamente!
+</div>
